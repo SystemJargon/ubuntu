@@ -1,0 +1,1 @@
+file=/cdrom/preseed.cfg auto=true priority=critical
