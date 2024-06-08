@@ -1,3 +1,1 @@
-Just some repo for an Ubunutu fresh install.
-
-Nothing special
+Just some repo for an Ubunutu fresh install. Nothing special.
