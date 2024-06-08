@@ -1,0 +1,8 @@
+# .gitignore
+archive/
+test/
+tmp/
+temp/
+.ssh/
+.secrets/
+.vault/
