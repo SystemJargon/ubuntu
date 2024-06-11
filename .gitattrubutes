@@ -1,0 +1,10 @@
+languages:
+  shell:
+    - "*.sh"
+  yaml:
+    - "*.yml"
+    - "*.yaml"
+  cfg:
+    - "*.cfg"
+  other:
+    - "*"

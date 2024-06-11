@@ -1,2 +1,4 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+*.cfg linguist-language=cfg
+*.sh linguist-language=Shell
+*.yml linguist-language=YAML
+*.yaml linguist-language=YAML
