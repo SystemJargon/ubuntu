@@ -1,0 +1,50 @@
+# Ubuntu Unattended Installation Configuration
+# Example file only. Replace user and password and any bash scripts with your own.
+
+# Define the type of installation
+install:
+  # Language and location settings
+  language: en_US
+  country: NZ
+  locale: en_NZ.UTF-8
+
+  # Keyboard configuration
+  keyboard: us
+
+  # Timezone setup
+  timezone: Pacific/Auckland
+
+  # Partitioning scheme
+  # (example: Use LVM with a separate /home partition)
+  partioning:
+    method: lvm
+    guided: true
+    lvm: /dev/sda
+
+  # User account setup
+  #user:
+    #fullname: John Doe
+    #username: johndoe
+    #password: mypassword
+
+  # System packages
+  packages:
+    - ubuntu-desktop
+    #- refer to initial_install.sh for more packages
+
+  # Network configuration
+  network:
+    - interface: eth0
+      protocol: dhcp
+      # if static-not-dhcp, then add include file for networking
+
+  # Bootloader setup
+  bootloader:
+    install: /dev/sda
+
+  # Additional configurations
+  preseed:
+    late_command: wget https://raw.githubusercontent.com/SystemJargon/ubuntu/main/initial_install.sh -O /tmp/initial_install.sh; in-target /bin/bash /tmp/initial_install.sh
+
+# Configure post-installation scripts or additional configurations here
+# Depends IF preseed.txt && preseed.cfg
