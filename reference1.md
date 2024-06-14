@@ -14,11 +14,15 @@ note: examples of nftables and iptables have both interface enp4s0 and eth0
 
 flush ruleset
 
-```nft flush ruleset```
+```
+nft flush ruleset
+```
 
 add nft ruleset from file
 
-```nft -f ruleset.txt```
+```
+nft -f ruleset.txt
+```
 
 example of typical DROP and LOG (contents of ruleset.txt)
 
@@ -39,7 +43,10 @@ add rule ip filter LOGGING counter drop
 ```
 
 List rules
-```nft list ruleset```
+
+```
+nft list ruleset
+```
 
 ---
 
@@ -49,22 +56,44 @@ reference: https://wiki.nftables.org/wiki-nftables/index.php/Moving_from_iptable
 
 example with translations:
 
-```iptables-nft -A INPUT -i eth0 -p tcp -s 172.16.0.1 --dport 8080 -j ACCEPT```
+```
+iptables-nft -A INPUT -i eth0 -p tcp -s 172.16.0.1 --dport 8080 -j ACCEPT
+```
 
 
 Save rules
-```iptables-nft-save```
+
+```
+iptables-nft-save
+```
 
 Also, you can just save all of your iptables rules like 
-```iptables-save > save.txt``` and then use ```iptables-restore-translate -f save.txt``` to get the translated rules.
+
+```
+iptables-save > save.txt
+``` 
+
+then use the below to get the translated rules.
+
+```
+iptables-restore-translate -f save.txt
+```
+
 
 ---
 
 ### IPTables (old-method)
 
+Flush any input we have and create a new ruleset called LOGGING
+
 ```
-# sudo iptables -F INPUT
+sudo iptables -F INPUT
 sudo iptables -N LOGGING
+```
+
+iptables.rules
+
+```
 *filter
 :INPUT DROP [310:45879]
 :FORWARD ACCEPT [0:0]
@@ -75,7 +104,7 @@ sudo iptables -N LOGGING
 -A INPUT -i eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 -A INPUT -i enp4s0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 -A INPUT -s 127.0.0.53/32 -i lo -p udp -m udp --sport 53 -j ACCEPT
-# -A INPUT -j LOGGING
+-A INPUT -j LOGGING
 -A LOGGING -m limit --limit 2/min -j LOG --log-prefix "IPTables-Dropped: "
 -A LOGGING -j DROP
 COMMIT
@@ -83,11 +112,13 @@ COMMIT
 
 output iptables rule
 
-```iptables-save > iptables.txt```
+```
+iptables-save > iptables.rules
+```
 
 Copy iptables to working ruleset
 
 ```
-sudo cp iptables.txt /etc/iptables/rules.v4
+sudo cp iptables.rules /etc/iptables/rules.v4
 ```
 
