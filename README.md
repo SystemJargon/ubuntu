@@ -3,7 +3,7 @@ Just some repo for an Ubunutu fresh install. Nothing special.
 Links to files in this repo
 
 * [README.md](README.md)
-* [Iac.yml](Iac.yml)
+* [IaC.yml](IaC.yml)
 * [autoinstall.yaml](autoinstall.yaml)
 * [initial_install.sh](initial_install.sh)
 * [nftables.rules](nftables.rules)
