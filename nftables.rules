@@ -6,7 +6,7 @@ add chain ip filter LOGGING
 add rule ip filter INPUT iifname "lo" ip protocol udp ip saddr 127.0.0.1 counter accept
 add rule ip filter INPUT iifname "lo" ip protocol tcp ip saddr 127.0.0.1 counter accept
 add rule ip filter INPUT iifname "enp4s0" ct state related,established counter accept
-add rule ip filter INPUT iifname "eth0" ct state related,established counter accept
+add rule ip filter INPUT iifname "wlo1" ct state related,established counter accept
 add rule ip filter INPUT iifname "lo" ip saddr 127.0.0.53 udp sport 53 counter accept
 add rule ip filter INPUT counter jump LOGGING
 add rule ip filter LOGGING limit rate 2/minute burst 5 packets counter log prefix "IPTables-Dropped: "
