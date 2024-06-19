@@ -50,7 +50,7 @@ nft list ruleset
 
 ---
 
-move to nftables / nft from legacy iptables
+### move to nftables / nft from legacy iptables
 
 reference: https://wiki.nftables.org/wiki-nftables/index.php/Moving_from_iptables_to_nftables
 
@@ -117,6 +117,8 @@ iptables-save > iptables.rules
 ```
 
 Copy iptables to working ruleset
+
+note /etc/iptables/rules.v4 should persist across reboots
 
 ```
 sudo cp iptables.rules /etc/iptables/rules.v4
