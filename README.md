@@ -11,3 +11,4 @@ Links to files in this repo
 * [reference1.md](reference1.md)
 * [other.sh](other.sh)
 * [misc.md](misc.md)
+* [flatpak-bottles.md](flatpak-bottles.md)
